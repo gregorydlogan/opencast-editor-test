@@ -21,10 +21,13 @@ jobs:
       run: wget https://raw.githubusercontent.com/opencast/opencast-editor-test/main/.github/scripts/cleanup-deployments.sh
 
     - name: Run cleanup script
-      run: bash cleanup-deployments.sh
+      run: |
+        bash cleanup-deployments.sh opencast/opencast-editor
+        rm -f cleanup-deployments.sh*
 
     - name: Commit changes
       uses: stefanzweifel/git-auto-commit-action@v4
       with:
         branch: gh-pages
         commit_message: Cleanup and delete old deployments
+        commit_options: '--amend"
