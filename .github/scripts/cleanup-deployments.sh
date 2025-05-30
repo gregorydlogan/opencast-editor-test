@@ -1,5 +1,5 @@
 #!/bin/bash
-
+set -uxe
 # That is list the files of type directory whose name does not contain
 # a non-digit. So we only process automated deployments.
 # 
